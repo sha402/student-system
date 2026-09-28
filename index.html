@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>نظام فرسان الضاد - إدارة الحضور والدرجات بالذهب</title>
+
+  <!-- Google Fonts: Cairo -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Three.js Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+  <!-- 3D Canvas Background -->
+  <div id="canvas-container"></div>
+
+  <div class="app-container">
+    <!-- Header -->
+    <header>
+      <h1><i class="fa-solid fa-scroll"></i> أكاديمية لغة الضاد - الصف الثالث الثانوي</h1>
+      <p>نظام التنافس بالذهب وإدارة درجات الشفوي، الميدترم، والفاينل</p>
+    </header>
+
+    <!-- Top Rank Winner Banner -->
+    <div class="champ-card">
+      <div class="champ-info">
+        <i class="fa-solid fa-crown champ-icon"></i>
+        <div class="champ-details">
+          <span class="champ-badge">صاحب المركز الأول (مكافأة +100 ذهبة)</span>
+          <h2 id="champ-name">جاري التحديد...</h2>
+          <p>أعلى رصيد ذهبي في الدفعة</p>
+        </div>
+      </div>
+      <div class="gold-count" style="font-size: 2rem;">
+        <i class="fa-solid fa-coins"></i> <span id="champ-gold">0</span> ذهب
+      </div>
+    </div>
+
+    <!-- Rules Summary -->
+    <div class="rules-bar">
+      <div class="rule-item"><i class="fa-solid fa-circle-check" style="color: var(--accent-green);"></i> حضور: <strong>+30 ذهب</strong></div>
+      <div class="rule-item"><i class="fa-solid fa-circle-xmark" style="color: var(--accent-red);"></i> غياب: <strong>-20 ذهب</strong></div>
+      <div class="rule-item"><i class="fa-solid fa-book-open" style="color: var(--gold-primary);"></i> واجب: <strong>+15 ذهب</strong></div>
+      <div class="rule-item"><i class="fa-solid fa-trophy" style="color: var(--gold-light);"></i> المركز الأول: <strong>+100 ذهب</strong></div>
+    </div>
+
+    <!-- Filter and Search -->
+    <div class="controls-panel">
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="searchInput" placeholder="ابحث باسم الطالب أو الترتيب (1 إلى 1000)...">
+      </div>
+      <button class="filter-btn active" onclick="filterStudents('all')">الجميع (1000)</button>
+      <button class="filter-btn" onclick="filterStudents('top')">الأوائل (Top 10)</button>
+      <button class="filter-btn" onclick="filterStudents('absent')">الغايبين</button>
+    </div>
+
+    <!-- Students & Grades Table -->
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>الترتيب</th>
+            <th>اسم الطالب</th>
+            <th>رصيد الذهب</th>
+            <th>شفوي (20)</th>
+            <th>ميدترم (30)</th>
+            <th>فاينل (50)</th>
+            <th>المجموع (100)</th>
+            <th>الحضور</th>
+            <th>الواجب</th>
+            <th>إجراءات الحضور</th>
+          </tr>
+        </thead>
+        <tbody id="studentTableBody">
+          <!-- Dynamically Injected Rows -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- External JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
